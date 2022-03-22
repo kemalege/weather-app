@@ -44,7 +44,7 @@ const App = () => {
     try {
       //axios ile yaptığımız isteğe ve gelen sonuca göre de veriler var bunun içinden destructor ile alıyoruz
       const { data } = await axios.get(
-        `https://cors-anywhere.herokuapp.com/api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=${lang}&units=metric`
+        `https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=${lang}&units=metric`
       );
         dispatch({type:"FETCH_SUCCESS",payload:data});
       
