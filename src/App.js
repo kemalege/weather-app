@@ -44,7 +44,7 @@ const App = () => {
     try {
       //axios ile yaptığımız isteğe ve gelen sonuca göre de veriler var bunun içinden destructor ile alıyoruz
       const { data } = await axios.get(
-        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=${lang}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&lang=${lang}&units=metric`
       );
         dispatch({type:"FETCH_SUCCESS",payload:data});
       
@@ -63,9 +63,9 @@ const App = () => {
     const lang = navigator.language.split("-")[0];
     const limit = 5;
     try {
-      //axios ile yaptığımız isteğe ve gelen sonuca göre de veriler var bunun içinden destructor ile alıyoruz
+      
       const { data } = await axios.get(
-        `http://api.openweathermap.org/geo/1.0/direct?q=${cityy}&limit=${limit}&appid=${key}&lang=${lang}`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${cityy}&limit=${limit}&appid=${key}&lang=${lang}`
       );
       if(data[0]){
         
