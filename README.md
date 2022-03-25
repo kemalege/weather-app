@@ -4,5 +4,5 @@ Displays the weather in your current location, but you can find out the weather 
 
 [Deployed weather App](https://kemalege.github.io/weather-app/).
 
-# Mosltly built with React-hooks.
-# This component based project was shaped with styled components.
+Mosltly built with React-hooks.
+This component based project was shaped with styled components.
