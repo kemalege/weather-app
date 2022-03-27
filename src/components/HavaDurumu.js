@@ -19,11 +19,19 @@ export const HavaDurumu = () => {
 
   // const [state, dispatch] =  useReducer(reducer, context);
  
-  const { weather, dt, main, sys, wind } = context.state.weather_data;
+  const { weather, dt, main, sys, wind , timezone } = context.state.weather_data;
   const {name} = context.state.city? context.state.city: context.state.weather_data;
   
-  console.log(context.state.weather_data);
-  console.log(context.state.weather_data)
+  // console.log(context.state.weather_data);
+
+  const timeZoneCalc = (offset) => {
+    const b = new Date()
+    const utc = b.getTime()+(b.getTimezoneOffset()*60000);
+    const nd = new Date(utc + (3600000*offset));
+    return nd.toLocaleString();
+  }
+
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     context.getCoordinates(context.sehir);
@@ -32,9 +40,23 @@ export const HavaDurumu = () => {
     const { value } = e.target;
     context.setSehir(value);
   };
+
   if (!context.state.weather_data) {
     return <p>...</p>;
   }
+
+  const dayOrNight = () => {
+    const currentDate = timeZoneCalc(timezone/3600);
+    const sunriseDate = new Date((sys.sunrise*1000)).toLocaleString();
+
+    if(dt > sys.sunrise){
+      return SvgObject[weather[0].main].day;
+    }
+    else{
+      return SvgObject[weather[0].main].night;
+    }
+  }
+  
   return (
     <StyledContainer>
       <StyledForm onSubmit={handleSubmit}>
@@ -53,7 +75,7 @@ export const HavaDurumu = () => {
       <StyledInfo>
         <h3>{name},   {sys.country}</h3>
         <h3>{weather.map((data) => data.description).join(", ")}</h3>
-        <Icons >{SvgObject[weather[0].main].day}</Icons>
+        <Icons >{dayOrNight()}</Icons>
         <div>
           <div>
           {<WiThermometer/>}{main.temp}°C 
@@ -62,8 +84,9 @@ export const HavaDurumu = () => {
           {<WiStrongWind/>}{wind.speed} m/s
           </div>
         </div>
-       
-         <h3>{<WiTime2/>}{new Date(dt * 1000).toLocaleString()}</h3>
+          
+         <h3>{<WiTime2/>}{timeZoneCalc(timezone/3600)}</h3>
+         
       </StyledInfo>
     </StyledContainer>
   );

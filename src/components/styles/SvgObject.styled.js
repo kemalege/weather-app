@@ -40,43 +40,43 @@ export const SvgObject = {
   // 'Snow': <WiDaySnow/>,
   // 'Mist': <WiDayFog/>,
   Clear: {
-    day: <WiDaySunny />,
-    night: <WiNightClear />,
+    "day": <WiDaySunny />,
+    "night": <WiNightClear />,
   },
 
   Clouds: {
-    day: <WiCloud />,
-    night: <WiNightAltCloudy />,
+    "day": <WiCloud />,
+    "night": <WiNightAltCloudy />,
   },
 
   Rain: {
-    day: <WiRain />,
-    night: <WiNightAltRainMix />,
+    "day": <WiRain />,
+    "night": <WiNightAltRainMix />,
   },
 
   Drizzle: {
-    day: <WiDaySleet />,
-    night: <WiNightAltSleet />,
+    "day": <WiDaySleet />,
+    "night": <WiNightAltSleet />,
   },
 
   Thunderstorm: {
-    day: <WiDayThunderstorm />,
-    night: <WiNightThunderstorm />,
+    "day": <WiDayThunderstorm />,
+    "night": <WiNightThunderstorm />,
   },
 
   Snow: {
-    day: <WiDaySnow />,
-    night: <WiNightSnow />,
+    "day": <WiDaySnow />,
+    "night": <WiNightSnow />,
   },
 
   Mist: {
-    day: <WiDayFog />,
-    night: <WiNightFog />,
+    "day": <WiDayFog />,
+    "night": <WiNightFog />,
   },
 
   Atmosphere: {
-    day: <WiDayFog />,
-    night: <WiNightFog />,
+    "day": <WiDayFog />,
+    "night": <WiNightFog />,
   },
 };
 
