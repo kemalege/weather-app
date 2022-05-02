@@ -11,6 +11,7 @@ import {Temprature} from "./styles/SvgObject.styled";
 import { WiThermometer } from "react-icons/wi";
 import { WiStrongWind } from "react-icons/wi";
 import { WiTime2 } from "react-icons/wi";
+import { SearchContainer } from "./styles/SearchContainer.styled";
 
 export const HavaDurumu = () => {
   const context = useContext(HavaDurumuContext);
@@ -42,17 +43,36 @@ export const HavaDurumu = () => {
   };
 
   if (!context.state.weather_data) {
-    return <p>...</p>;
-  }
+    // return <p>...</p>;
+    return (
+    <SearchContainer>
+      <StyledForm onSubmit={handleSubmit}>
+          <label></label>
+          <BsSearch id="bsSearch"/>
+          <input 
+            type="text"
+            required
+            value={context.sehir}
+            onChange={handleChange}
+          />
+          
+          <Button bg='#ff0099' color='#fff'>Search</Button>
+          {/* <p>{name}</p> */}
+        </StyledForm>
+    </SearchContainer>)
 
+  }
+  
   const dayOrNight = () => {
     const currentDate = timeZoneCalc(timezone/3600);
     const sunriseDate = new Date((sys.sunrise*1000)).toLocaleString();
 
     if(dt > sys.sunrise){
+      
       return SvgObject[weather[0].main].day;
     }
     else{
+      
       return SvgObject[weather[0].main].night;
     }
   }

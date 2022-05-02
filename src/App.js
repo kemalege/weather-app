@@ -11,6 +11,7 @@ import GlobalStyles from "./components/styles/Global";
 import styled, {ThemeProvider} from "styled-components";
 import {lightTheme, darkTheme, themes, aydinlik,karanlik} from './components/styles/themes.js';
 import Splash from "./components/styles/ToggleSwitch";
+import { StyledForm } from "./components/styles/Form.styled";
 
 export const initialState = {
   weather_data: "",
@@ -107,13 +108,17 @@ const App = () => {
       getWeatherData: getWeatherData,
       getCoordinates: getCoordinates,
       setSehir: setSehir,
-      sehir:sehir
+      setTheme: setTheme,
+      sehir:sehir,
+      longitude: longitude,
+      latitude: latitude
      }}>
      <GlobalStyles/>
       <Container>
         <Splash theme={theme} setTheme={setTheme}/>
         {/* <toggleButton onClick ={() => themeToggler()}>{Icon}</toggleButton> */}
-       <HavaDurumu/>
+        
+        <HavaDurumu/>
       </Container>
    </HavaDurumuContext.Provider>
    </ThemeProvider>
